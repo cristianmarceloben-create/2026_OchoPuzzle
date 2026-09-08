@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101010"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/screenPadding">
+
+        <TextView
+            android:id="@+id/TXVTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:text="@string/appTitle"
+            android:textColor="#BDBDBD"
+            android:textSize="@dimen/titleTextSize"
+            android:textStyle="bold" />
+
+        <GridLayout
+            android:id="@+id/GRLTablero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop"
+            android:columnCount="4"
+            android:rowCount="4">
+
+            <Button
+                android:id="@+id/BTN00"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN01"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN02"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN03"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN10"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN11"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN12"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN13"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN20"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN21"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN22"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN23"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN30"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN31"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN32"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+            <Button
+                android:id="@+id/BTN33"
+                android:layout_width="@dimen/puzzleButtonWidth"
+                android:layout_height="@dimen/puzzleButtonHeight"
+                android:layout_margin="@dimen/puzzleButtonMargin"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/puzzleButtonTextSize" />
+
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/TXVMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:text="@string/message"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/messageTextSize"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/BTNRestart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:text="@string/Restart"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/actionButtonTextSize" />
+
+        <Button
+            android:id="@+id/BTNShuffle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:text="@string/Shuffle"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/actionButtonTextSize" />
+
+        <Button
+            android:id="@+id/BTNVerify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:text="@string/Verify"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/actionButtonTextSize" />
+
+    </LinearLayout>
+
+</ScrollView>

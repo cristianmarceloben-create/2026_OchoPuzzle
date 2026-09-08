@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">Ocho Puzzle</string>
+    <string name="appTitle">Ocho Puzzle</string>
+    <string name="message">Mensaje</string>
+    <string name="correctMessage">Puzzle ordenado correctamente</string>
+    <string name="incorrectMessage">El puzzle no está ordenado</string>
+    <string name="Restart">Reiniciar Juego</string>
+    <string name="Shuffle">Desordenar</string>
+    <string name="Verify">Verificar</string>
+</resources>

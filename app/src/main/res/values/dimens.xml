@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <dimen name="screenPadding">12dp</dimen>
+
+    <dimen name="puzzleButtonWidth">72dp</dimen>
+    <dimen name="puzzleButtonHeight">64dp</dimen>
+    <dimen name="puzzleButtonMargin">4dp</dimen>
+    <dimen name="puzzleButtonTextSize">28sp</dimen>
+
+    <dimen name="titleTextSize">28sp</dimen>
+    <dimen name="messageTextSize">18sp</dimen>
+    <dimen name="actionButtonTextSize">16sp</dimen>
+
+    <dimen name="marginTop">16dp</dimen>
+    <dimen name="smallMargin">8dp</dimen>
+</resources>
