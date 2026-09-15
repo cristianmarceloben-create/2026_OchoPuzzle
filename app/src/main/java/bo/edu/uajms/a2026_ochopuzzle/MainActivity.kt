@@ -5,7 +5,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.math.abs
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var BTNRestart: Button
     private lateinit var BTNShuffle: Button
     private lateinit var BTNVerify: Button
+
     private lateinit var Tablero: Array<Array<Int>>
 
     private val rows = 4
@@ -28,14 +28,17 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.BTN01),
             findViewById(R.id.BTN02),
             findViewById(R.id.BTN03),
+
             findViewById(R.id.BTN10),
             findViewById(R.id.BTN11),
             findViewById(R.id.BTN12),
             findViewById(R.id.BTN13),
+
             findViewById(R.id.BTN20),
             findViewById(R.id.BTN21),
             findViewById(R.id.BTN22),
             findViewById(R.id.BTN23),
+
             findViewById(R.id.BTN30),
             findViewById(R.id.BTN31),
             findViewById(R.id.BTN32),
@@ -57,18 +60,6 @@ class MainActivity : AppCompatActivity() {
             BTNTablero[i].setOnClickListener {
                 moveTile(row, col)
             }
-        }
-
-        BTNRestart.setOnClickListener {
-            restartGame()
-        }
-
-        BTNShuffle.setOnClickListener {
-            shuffleBoard()
-        }
-
-        BTNVerify.setOnClickListener {
-            verifyPuzzle()
         }
     }
 
@@ -110,12 +101,18 @@ class MainActivity : AppCompatActivity() {
         val blankRow = blankPosition.first
         val blankCol = blankPosition.second
 
-        val distance = abs(row - blankRow) + abs(col - blankCol)
+        val distance =
+            abs(row - blankRow) + abs(col - blankCol)
 
         if (distance == 1) {
-            swapTiles(row, col, blankRow, blankCol)
+            swapTiles(
+                row,
+                col,
+                blankRow,
+                blankCol
+            )
+
             updateBoard()
-            TXVMessage.text = getString(R.string.message)
         }
     }
 
@@ -138,84 +135,10 @@ class MainActivity : AppCompatActivity() {
         secondCol: Int
     ) {
         val value = Tablero[firstRow][firstCol]
-        Tablero[firstRow][firstCol] = Tablero[secondRow][secondCol]
+
+        Tablero[firstRow][firstCol] =
+            Tablero[secondRow][secondCol]
+
         Tablero[secondRow][secondCol] = value
-    }
-
-    private fun restartGame() {
-        createSolvedBoard()
-        updateBoard()
-        TXVMessage.text = getString(R.string.message)
-    }
-
-    private fun shuffleBoard() {
-        do {
-            createSolvedBoard()
-
-            repeat(200) {
-                moveBlankRandomly()
-            }
-        } while (isSolved())
-
-        updateBoard()
-        TXVMessage.text = getString(R.string.message)
-    }
-
-    private fun moveBlankRandomly() {
-        val blankPosition = findBlank()
-        val blankRow = blankPosition.first
-        val blankCol = blankPosition.second
-        val possibleMoves = mutableListOf<Pair<Int, Int>>()
-
-        if (blankRow > 0) {
-            possibleMoves.add(Pair(blankRow - 1, blankCol))
-        }
-
-        if (blankRow < rows - 1) {
-            possibleMoves.add(Pair(blankRow + 1, blankCol))
-        }
-
-        if (blankCol > 0) {
-            possibleMoves.add(Pair(blankRow, blankCol - 1))
-        }
-
-        if (blankCol < cols - 1) {
-            possibleMoves.add(Pair(blankRow, blankCol + 1))
-        }
-
-        val selectedMove = possibleMoves[Random.nextInt(possibleMoves.size)]
-
-        swapTiles(
-            selectedMove.first,
-            selectedMove.second,
-            blankRow,
-            blankCol
-        )
-    }
-    private fun verifyPuzzle() {
-        if (isSolved()) {
-            TXVMessage.text = getString(R.string.correctMessage)
-        } else {
-            TXVMessage.text = getString(R.string.incorrectMessage)
-        }
-    }
-    private fun isSolved(): Boolean {
-        var expectedNumber = 1
-
-        for (i in 0 until rows) {
-            for (j in 0 until cols) {
-                if (i == rows - 1 && j == cols - 1) {
-                    return Tablero[i][j] == 0
-                }
-
-                if (Tablero[i][j] != expectedNumber) {
-                    return false
-                }
-
-                expectedNumber++
-            }
-        }
-
-        return true
     }
 }
