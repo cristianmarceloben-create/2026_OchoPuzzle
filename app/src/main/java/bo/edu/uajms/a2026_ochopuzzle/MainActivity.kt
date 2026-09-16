@@ -8,22 +8,29 @@ import kotlin.math.abs
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var BTNTablero: Array<Button>
+    private lateinit var BTNButtons: Array<Button>
     private lateinit var TXVMessage: TextView
     private lateinit var BTNRestart: Button
-    private lateinit var BTNShuffle: Button
+    private lateinit var BTNDisorder: Button
     private lateinit var BTNVerify: Button
 
-    private lateinit var Tablero: Array<Array<Int>>
+    private lateinit var Tablero: Array<Array<String>>
 
     private val rows = 4
     private val cols = 4
+
+    private val TableroOrdenado = arrayOf(
+        arrayOf("1", "2", "3", "4"),
+        arrayOf("12", "13", "14", "5"),
+        arrayOf("11", "0", "15", "6"),
+        arrayOf("10", "9", "8", "7")
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        BTNTablero = arrayOf(
+        BTNButtons = arrayOf(
             findViewById(R.id.BTN00),
             findViewById(R.id.BTN01),
             findViewById(R.id.BTN02),
@@ -47,51 +54,52 @@ class MainActivity : AppCompatActivity() {
 
         TXVMessage = findViewById(R.id.TXVMessage)
         BTNRestart = findViewById(R.id.BTNRestart)
-        BTNShuffle = findViewById(R.id.BTNShuffle)
+        BTNDisorder = findViewById(R.id.BTNShuffle)
         BTNVerify = findViewById(R.id.BTNVerify)
 
-        createSolvedBoard()
+        createOrderedBoard()
         updateBoard()
 
-        for (i in BTNTablero.indices) {
+        for (i in BTNButtons.indices) {
             val row = i / cols
             val col = i % cols
 
-            BTNTablero[i].setOnClickListener {
+            BTNButtons[i].setOnClickListener {
                 moveTile(row, col)
             }
         }
-    }
 
-    private fun createSolvedBoard() {
-        Tablero = Array(rows) {
-            Array(cols) { 0 }
+        BTNRestart.setOnClickListener {
+            restartGame()
         }
 
-        var number = 1
+        BTNDisorder.setOnClickListener {
+            disorderBoard()
+        }
 
-        for (i in 0 until rows) {
-            for (j in 0 until cols) {
-                if (i == rows - 1 && j == cols - 1) {
-                    Tablero[i][j] = 0
-                } else {
-                    Tablero[i][j] = number
-                    number++
-                }
+        BTNVerify.setOnClickListener {
+            verifyBoard()
+        }
+    }
+
+    private fun createOrderedBoard() {
+        Tablero = Array(rows) { row ->
+            Array(cols) { col ->
+                TableroOrdenado[row][col]
             }
         }
     }
 
     private fun updateBoard() {
-        for (i in BTNTablero.indices) {
+        for (i in BTNButtons.indices) {
             val row = i / cols
             val col = i % cols
             val value = Tablero[row][col]
 
-            if (value == 0) {
-                BTNTablero[i].text = ""
+            if (value == "0") {
+                BTNButtons[i].text = ""
             } else {
-                BTNTablero[i].text = value.toString()
+                BTNButtons[i].text = value
             }
         }
     }
@@ -119,13 +127,13 @@ class MainActivity : AppCompatActivity() {
     private fun findBlank(): Pair<Int, Int> {
         for (i in 0 until rows) {
             for (j in 0 until cols) {
-                if (Tablero[i][j] == 0) {
+                if (Tablero[i][j] == "0") {
                     return Pair(i, j)
                 }
             }
         }
 
-        return Pair(rows - 1, cols - 1)
+        return Pair(2, 1)
     }
 
     private fun swapTiles(
@@ -140,5 +148,55 @@ class MainActivity : AppCompatActivity() {
             Tablero[secondRow][secondCol]
 
         Tablero[secondRow][secondCol] = value
+    }
+
+    private fun restartGame() {
+        createOrderedBoard()
+        updateBoard()
+        TXVMessage.text = "Juego Reiniciado"
+    }
+
+    private fun disorderBoard() {
+        val values = mutableListOf<String>()
+
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                values.add(Tablero[i][j])
+            }
+        }
+
+        values.shuffle()
+
+        var position = 0
+
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                Tablero[i][j] = values[position]
+                position++
+            }
+        }
+
+        updateBoard()
+        TXVMessage.text = "Completado"
+    }
+
+    private fun verifyBoard() {
+        if (isOrdered()) {
+            TXVMessage.text = "Juego Ordenado"
+        } else {
+            TXVMessage.text = "Juego Desordenado"
+        }
+    }
+
+    private fun isOrdered(): Boolean {
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                if (Tablero[i][j] != TableroOrdenado[i][j]) {
+                    return false
+                }
+            }
+        }
+
+        return true
     }
 }
